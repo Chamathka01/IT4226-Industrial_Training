@@ -18,7 +18,7 @@
                     {{$error}}
                 </div>
             @endforeach
-            
+
                 <form method="post" action="/saveTask" class="mb-4">
                 <!--{{csrf_field()}}--> 
                 @csrf   
@@ -33,11 +33,15 @@
                     <th>ID</th>
                     <th>Task</th>
                     <th>Completeed</th>
-                    <tr>
-                        <td>1</td>
-                        <td>I have to Learn Laravel Today</td>
-                        <td>Not Yet</td>
-                    </tr>
+                    
+                    @foreach($tasks as $task)
+                        <tr>
+                            <td>{{$task->id}}</td>
+                            <td>{{$task->task}}</td>
+                            <td>{{$task->iscompleted}}</td>
+                        </tr>
+                    @endforeach
+                </table>
             </div>
 </body>
 </html>
