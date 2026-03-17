@@ -12,6 +12,13 @@
     <h1>Daily Tasks</h1>  
         <div class="row">
             <div class="col-md-12">
+
+            @foreach($errors->all() as $error)
+                <div class="alert alert-danger" role="alert">
+                    {{$error}}
+                </div>
+            @endforeach
+            
                 <form method="post" action="/saveTask" class="mb-4">
                 <!--{{csrf_field()}}--> 
                 @csrf   
