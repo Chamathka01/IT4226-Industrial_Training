@@ -2,16 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Models\Task;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/tasks', function () {
-    $data=App\Task::all();
+    $data=Task::all();
     return view('tasks')->with('tasks',$data);
 });
 
 Route::post('/saveTask', [TaskController::class, 'store']);
 
-Route::get('/markascompleted/{id}','TaskController@UpdateTaskAsCompleted');
+Route::get('/markascompleted/{id}', [TaskController::class, 'UpdateTaskAsCompleted']);
+Route::get('/markasnotcompleted/{id}',[TaskController::class, 'UpdateTaskAsNotCompleted']);

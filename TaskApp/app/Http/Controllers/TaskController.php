@@ -25,7 +25,21 @@ class TaskController extends Controller
         //return redirect()->back();
         return view('tasks')->with('tasks',$data);
 
-        Route::get('/markascompleted/{id}','TaskController@UpdateTaskAsCompleted');
+        
 
     }
+    public function UpdateTaskAsCompleted($id){
+        $task=Task::find($id);
+        $task->iscompleted=1;
+        $task->save();
+        return redirect()->back();
+    }
+
+    public function UpdateTaskAsNotCompleted($id){
+        $task=Task::find($id);
+        $task->iscompleted=0;
+        $task->save();
+        return redirect()->back();
+    }
+
 }
