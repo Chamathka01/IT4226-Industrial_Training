@@ -59,6 +59,7 @@
                              <a href="/markasnotcompleted/{{$task->id}}" class="btn btn-danger">Mark As not  Completed</a>
                             @endif
                             <a href = "deletetask/{{$task->id}}" class="btn btn-warning">Delete</a>
+                            <a href = "updatetask/{{$task->id}}" class="btn btn-success">Update</a>
                             </td>
                         </tr>
                     @endforeach
