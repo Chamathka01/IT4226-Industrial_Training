@@ -9,7 +9,22 @@
 <body>
     <div class = "container"> 
     <div class="text-center">
-        Daily Tasks    
-    </div>
+    <h1>Daily Tasks</h1>  
+        <div class="row">
+            <div class="col-md-12">
+                <input type = "text" class="form-control" name="task" placeholder="Enter your task here">  
+                </br>    
+                <input type="button" class="btn btn-primary" value="SAVE">
+                <input type="button" class="btn btn-warning" value="CLEAR">
+                <table class="table table-dark">
+                    <th>ID</th>
+                    <th>Task</th>
+                    <th>Completeed</th>
+                    <tr>
+                        <td>1</td>
+                        <td>I have to Learn Laravel Today</td>
+                        <td>Not Yet</td>
+                    </tr>
+            </div>
 </body>
 </html>
