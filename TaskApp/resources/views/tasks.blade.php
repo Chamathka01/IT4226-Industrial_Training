@@ -30,10 +30,15 @@
 
                 <div class="mt-3">
                 <table class="table table-dark">
-                    <th>ID</th>
-                    <th>Task</th>
-                    <th>Completeed</th>
-                    
+                 <thread>
+                    <tr>   
+                        <th>ID</th>
+                        <th>Task</th>
+                        <th>Completed</th>
+                        <th>Action</th>
+                    </tr>
+                </thread> 
+                <tbody> 
                     @foreach($tasks as $task)
                         <tr>
                             <td>{{$task->id}}</td>
@@ -46,8 +51,12 @@
                             <button class="btn btn-warning">Not Completed</button>
                             @endif
                             </td>
+                            <td>
+                            <a href="/markascompleted/{{$task->id}}" class="btn btn-primary">Mark As Completed</a>
+                            </td>
                         </tr>
                     @endforeach
+                </tbody>
                 </table>
             </div>
 </body>
