@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,4 +15,4 @@ Route::get('/login',function(){
     return view('aboutus');
 });*/
 
-Route::get('/about','PagesController@indexaboutus');
+Route::get('/about', [PagesController::class, 'indexaboutus']);
