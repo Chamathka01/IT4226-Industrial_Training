@@ -12,14 +12,16 @@
     <h1>Daily Tasks</h1>  
         <div class="row">
             <div class="col-md-12">
-                <form method="post" action="/saveTask">
-                <!--{{csrf_field()}}-->> 
+                <form method="post" action="/saveTask" class="mb-4">
+                <!--{{csrf_field()}}--> 
                 @csrf   
                 <input type = "text" class="form-control" name="task" placeholder="Enter your task here">  
                 </br>    
                 <input type="submit" class="btn btn-primary" value="SAVE">
                 <input type="button" class="btn btn-warning" value="CLEAR">
                 </form>
+
+                <div class="mt-3">
                 <table class="table table-dark">
                     <th>ID</th>
                     <th>Task</th>
