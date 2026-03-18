@@ -39,9 +39,11 @@
         <h3 class="font-weight-bold mb-2">Welcome Back</h3>
         <p class="text-muted mb-4">Login to continue</p>
 
-        <form>
-            <input type="email" class="form-control mb-3" placeholder="Email" required>
-            <input type="password" class="form-control mb-4" placeholder="Password" required>
+        <form method="POST" action="{{route('login.check')}}">
+            @csrf
+
+            <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
+            <input type="password" name="password" class="form-control mb-4" placeholder="Password" required>
 
             <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
