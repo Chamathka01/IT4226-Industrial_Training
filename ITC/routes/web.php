@@ -1,18 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PagesController;
+//use App\Http\Controllers\PagesController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('register');
 });
 
 Route::get('/login',function(){
-    echo "Chamathka";
+    return view('login');
 });
 
 /*Route::get('/about', function () {
     return view('aboutus');
 });*/
 
-Route::get('/about', [PagesController::class, 'indexaboutus']);
+/*Route::get('/about', [PagesController::class, 'indexaboutus']);*/
