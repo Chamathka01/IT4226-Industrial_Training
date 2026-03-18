@@ -1,9 +1,9 @@
 <?php
 
-//use Illuminate\Support\Facades\Route;
-//use App\Http\Controllers\PagesController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Models\Register;
 
 Route::get('/', function () {
     return view('register');
@@ -17,8 +17,13 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 
 Route::post('/login', [LoginController::class, 'login'])->name('login.check');
 
-/*Route::get('/about', function () {
-    return view('aboutus');
-});*/
+Route::get('/home', function () {
+    return view('home');
+});
 
-/*Route::get('/about', [PagesController::class, 'indexaboutus']);*/
+Route::get('/users', function () {
+    $users = Register::all();
+    return view('users', ['users' => $users]);
+});
+
+Route::get('/logout', [LoginController::class, 'logout']);
