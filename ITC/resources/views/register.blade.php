@@ -38,61 +38,70 @@
         <h3 class="font-weight-bold mb-2">Register</h1>
         <p class="text-muted mb-4">Create your account</p>
     
-        <form style="max-width: 600px; margin: auto;">
-
+        <form method="POST" action="{{ route('register.store') }}">
+            @csrf
+    <!--First Name -->
     <div class="form-row">
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="First Name">
+            <input type="text" name="firstname"class="form-control" placeholder="First Name" required>
         </div>
 
+    <!--Last Name -->
          <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Last Name">
+            <input type="text" name="lastname"class="form-control" placeholder="Last Name" required>
         </div>
 
+    <!--DOB-->
+        <div class="form-row">
         <div class="form-group col-md-6">
-            <input type="date" class="form-control">
+            <input type="date" name="dob" class="form-control">
         </div>
-    </div>
-
-    <div class="form-row">
+    
+    <!--Phone-->
         <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Phone Number">
-        </div>
-
-        <div class="form-group col-md-6">
-            <input type="email" class="form-control" placeholder="Email Address">
-        </div>
-    </div>
-
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <input type="text" class="form-control" placeholder="Username">
+            <input type="text" name="phone" class="form-control" placeholder="Phone Number">
         </div>
 
+    <!-- Email-->
+        <div class="form-row">    
         <div class="form-group col-md-6">
-            <select class="form-control">
-                <option disabled selected>Select Role</option>
+            <input type="email" name="email" class="form-control" placeholder="Email Address">
+        </div>
+
+    <!-- Usernmae-->    
+        <div class="form-group col-md-6">
+            <input type="text" name="username" class="form-control" placeholder="Username">
+        </div>
+
+    <!--Role-->
+        <div class="form-group">
+            <select name="role" class="form-control" required>
+                <option value="">Select Role</option>
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
             </select>
         </div>
-    </div>
 
+    <!-- Address-->    
     <div class="form-group">
-        <textarea class="form-control" rows="2" placeholder="Address"></textarea>
+        <textarea name="address" class="form-control" rows="2" placeholder="Address"></textarea>
     </div>
 
+    <!-- Password-->
     <div class="form-row">
         <div class="form-group col-md-6">
-            <input type="password" class="form-control" placeholder="Password">
-        </div>
-
-        <div class="form-group col-md-6">
-            <input type="password" class="form-control" placeholder="Confirm Password">
+            <input type="password" name="password" class="form-control" placeholder="Password" required>
         </div>
     </div>
 
-    <button class="btn btn-primary btn-block">Register</button>
+    <!--Confirm password-->
+        <div class="form-group col-md-6">
+            <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
+        </div>
+    </div>
+
+    <!--Button for Register-->
+    <button type="submit"class="btn btn-primary btn-block">Register</button>
 
 </form>
 
