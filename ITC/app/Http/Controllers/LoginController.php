@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
-    public function login(Request $request)
-    {
-        $user = Register::where('email', $request->email)->first();
+        public function login(Request $request)
+        {
+            $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+
+        $user = Register::where('username', $request->username)->first();
 
         if ($user && Hash::check($request->password, $user->password)) {
 

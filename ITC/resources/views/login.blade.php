@@ -42,7 +42,7 @@
         <form method="POST" action="{{route('login.check')}}">
             @csrf
 
-            <input type="email" name="email" class="form-control mb-3" placeholder="Email" required>
+            <input type="text" name="username" class="form-control mb-3" placeholder="Username" required>
             <input type="password" name="password" class="form-control mb-4" placeholder="Password" required>
 
             <button type="submit" class="btn btn-primary btn-block">Login</button>
