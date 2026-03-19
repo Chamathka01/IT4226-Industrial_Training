@@ -11,23 +11,30 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required|unique:registers',
-            'username' => 'required|unique:registers',
-            'password' => 'required|min:6',
+            'firstname' => 'required|string|max:50',
+            'lastname' => 'required|string|max:50',
+            'dob' => 'nullable|date',
+            'phone' => 'nullable|digits:10',
+            'email' => 'required|email|unique:registers,email',
+            'username' => 'required|min:4|max:20|unique:registers,username',
+            'role' => 'required|in:admin,user',
+            'address' => 'nullable|string|max:255',
+            'password' => 'required|min:8',
         ]);
 
-        Register::create([
-            'firstname' => $request->firstname,
-            'lastname' => $request->lastname,
-            'dob' => $request->dob,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'username' => $request->username,
-            'role' => $request->role,
-            'address' => $request->address,
-            'password' => Hash::make($request->password),
-        ]);
+        $user = new Register();
+        $user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
+        $user->dob = $request->dob;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->username = $request->username;
+        $user->role = $request->role;
+        $user->address = $request->address;
+        $user->password = Hash::make($request->password);
+        
+        $user->save();
 
-        return redirect('/login');
+        return redirect('/login')->with('success', 'Registration successful! Please login.');
     }
 }
