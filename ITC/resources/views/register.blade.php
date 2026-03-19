@@ -9,35 +9,48 @@
 
      <style>
     body {
-        height: 100vh;
+        min-height: 100vh;
         background: linear-gradient(135deg, #a0a0a0, #7a7a7a);
         font-family: 'Poppins', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
     }
 
     .register-card {
         border: none;
         border-radius: 20px;
-        padding: 30px;
+        padding: 40px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        background-color: #fff;
+        width: 100%;
+        max-width: 550px;
     }
 
     .form-control {
         border-radius: 10px;
+        height: 45px;
     }
+    textarea.form-control {
+            height: auto;
+     }
 
     .btn-primary {
         border-radius: 10px;
         font-weight: 600;
+        height: 45px;
+        margin-top: 10px;
     }
 </style>
     </head>
 <body>
-    <div class = "container d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <div class="card register-card text-center" style="width: 350px;">
-    
-        <h3 class="font-weight-bold mb-2">Register</h1>
+    <div class="card register-card">
+        <div class="text-center">
+        <h3 class="font-weight-bold mb-2">Register</h3>
         <p class="text-muted mb-4">Create your account</p>
-    
+    </div>
+
         <form method="POST" action="{{ route('register.store') }}">
             @csrf
     <!--First Name -->
@@ -50,7 +63,7 @@
          <div class="form-group col-md-6">
             <input type="text" name="lastname"class="form-control" placeholder="Last Name" required>
         </div>
-
+    </div>
     <!--DOB-->
         <div class="form-row">
         <div class="form-group col-md-6">
@@ -61,7 +74,7 @@
         <div class="form-group col-md-6">
             <input type="text" name="phone" class="form-control" placeholder="Phone Number">
         </div>
-
+    </div>
     <!-- Email-->
         <div class="form-row">    
         <div class="form-group col-md-6">
@@ -72,7 +85,7 @@
         <div class="form-group col-md-6">
             <input type="text" name="username" class="form-control" placeholder="Username">
         </div>
-
+    </div>
     <!--Role-->
         <div class="form-group">
             <select name="role" class="form-control" required>
@@ -92,7 +105,6 @@
         <div class="form-group col-md-6">
             <input type="password" name="password" class="form-control" placeholder="Password" required>
         </div>
-    </div>
 
     <!--Confirm password-->
         <div class="form-group col-md-6">
@@ -105,8 +117,8 @@
 
 </form>
 
-        <p class="mt-3">
-            Already have an account? <a href="/login">Login</a>
+        <div class="text-center mt-3">
+           <p> Already have an account? <a href="/login">Login</a>
         </p>
 
         </div>
