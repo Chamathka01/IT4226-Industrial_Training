@@ -9,32 +9,47 @@
 
     <style>
     body {
-        height: 100vh;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         background: linear-gradient(135deg, #a0a0a0, #7a7a7a);
         font-family: 'Poppins', sans-serif;
+        margin: 0;
     }
 
     .login-card {
         border: none;
         border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        padding: 50px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            background-color: #fff;
+            width: 100%;
+            max-width: 450px;
     }
 
     .form-control {
         border-radius: 10px;
+        height: 50px;
+        margin-bottom: 20px;
     }
 
     .btn-primary {
         border-radius: 10px;
         font-weight: 600;
+        height: 50px;
+        font-size: 1.1rem;
+        margin-top: 10px;
+    }    
+
+    h3 {
+            font-size: 2rem; 
     }
 </style>
 
 </head>
 <body>
-    <div class="container d-flex justify-content-center align-items-center h-100">
-    <div class="card login-card text-center" style="width: 350px;">
+    <div class="card login-card text-center">
         
         <h3 class="font-weight-bold mb-2">Welcome Back</h3>
         <p class="text-muted mb-4">Login to continue</p>
@@ -48,9 +63,8 @@
             <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
 
-        <p class="mt-3">
-            Don't have an account? <a href="/">Register</a>
-        </p>
+        <div class="mt-4">
+            <p class="mb-0">Don't have an account? <a href="/">Register</a></p>
     </div>
 
 </div> 
