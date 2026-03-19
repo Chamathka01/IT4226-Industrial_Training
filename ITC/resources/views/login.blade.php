@@ -10,7 +10,7 @@
     <style>
     body {
         height: 100vh;
-        background: linear-gradient(135deg, #667eea, #764ba2);
+        background: linear-gradient(135deg, #a0a0a0, #7a7a7a);
         font-family: 'Poppins', sans-serif;
     }
 
@@ -49,7 +49,7 @@
         </form>
 
         <p class="mt-3">
-            Don't have an account? <a href="#">Register</a>
+            Don't have an account? <a href="/">Register</a>
         </p>
     </div>
 

@@ -18,6 +18,9 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::post('/login', [LoginController::class, 'login'])->name('login.check');
 
 Route::get('/home', function () {
+    if (!Session::has('user')) {
+        return redirect('/login');
+    }
     return view('home');
 });
 
