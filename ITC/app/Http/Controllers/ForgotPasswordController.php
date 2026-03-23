@@ -20,6 +20,6 @@ class ForgotPasswordController extends Controller
         }
 
         // For now (simple version)
-        return back()->with('success', 'Password reset link sent (demo)');
+        return back()->with('success', 'Password reset link sent');
     }
 }
