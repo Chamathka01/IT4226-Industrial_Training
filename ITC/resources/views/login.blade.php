@@ -98,6 +98,11 @@
             <input type="password" id="login_password" name="password" class="form-control mb-4" placeholder="Password" required>
             <span class="fa fa-eye field-icon" onclick="togglePassword('login_password', this)"></span>
             </div>
+
+            <div class="text-right mb-3">
+            <a href="/forgot-password">Forgot Password?</a>
+            </div>
+
             <button type="submit" class="btn btn-primary btn-block">Login</button>
         </form>
 

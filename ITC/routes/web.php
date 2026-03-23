@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Models\Register;
 
 Route::get('/', function () {
@@ -30,3 +31,9 @@ Route::get('/users', function () {
 });
 
 Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::get('/forgot-password', function () {
+    return view('forgot-password');
+});
+
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendLink'])->name('password.send');
