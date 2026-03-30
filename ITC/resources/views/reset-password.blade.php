@@ -45,7 +45,7 @@
         </div>
 
 
-        <button class="btn btn-success btn-block">Reset Password</button>
+        <button class="btn btn-primary btn-block">Reset Password</button>
     </form>
 </div>
 
