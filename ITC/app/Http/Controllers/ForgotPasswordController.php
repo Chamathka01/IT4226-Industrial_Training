@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Register;
+use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class ForgotPasswordController extends Controller
 {
@@ -19,7 +21,45 @@ class ForgotPasswordController extends Controller
             return back()->with('error', 'Email not found');
         }
 
-        // For now (simple version)
-        return back()->with('success', 'Password reset link sent');
+        // Generate 6-digit code
+        $code = rand(100000, 999999);
+
+        $user->reset_code = $code;
+        $user->reset_expires_at = Carbon::now()->addMinutes(10);
+        $user->save();
+
+        // TEMP: show code (instead of email)
+        return redirect('/reset-password')->with('success', 'Your reset code is: ' . $code);
     }
+
+    // RESET PASSWORD
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'code' => 'required',
+            'password' => 'required|min:8|confirmed'
+        ]);
+
+        $user = Register::where('email', $request->email)
+            ->where('reset_code', $request->code)
+            ->first();
+
+        if (!$user) {
+            return back()->with('error', 'Invalid code or email');
+        }
+
+        // Check expiry
+        if (Carbon::now()->gt($user->reset_expires_at)) {
+            return back()->with('error', 'Code expired');
+        }
+
+        // Update password
+        $user->password = Hash::make($request->password);
+        $user->reset_code = null;
+        $user->reset_expires_at = null;
+        $user->save();
+
+        return redirect('/login')->with('success', 'Password updated successfully');
+}
 }
