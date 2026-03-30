@@ -3,6 +3,7 @@
 <head>
     <title>Reset Password</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="d-flex justify-content-center align-items-center" style="height:100vh; background:#ccc;">
 
@@ -23,8 +24,26 @@
         <input type="email" name="email" class="form-control mb-2" placeholder="Email" required>
         <input type="text" name="code" class="form-control mb-2" placeholder="Reset Code" required>
 
-        <input type="password" name="password" class="form-control mb-2" placeholder="New Password" required>
-        <input type="password" name="password_confirmation" class="form-control mb-3" placeholder="Confirm Password" required>
+        <!-- Password -->
+        <div class="input-group mb-2">
+            <input type="password" id="password" name="password" class="form-control" placeholder="New Password" required>
+            <div class="input-group-append">
+                <span class="input-group-text" onclick="togglePassword('password', this)" style="cursor:pointer;">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="input-group mb-3">
+            <input type="password" id="confirm_password" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
+            <div class="input-group-append">
+                <span class="input-group-text" onclick="togglePassword('confirm_password', this)" style="cursor:pointer;">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
+        </div>
+
 
         <button class="btn btn-success btn-block">Reset Password</button>
     </form>
