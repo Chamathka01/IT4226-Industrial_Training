@@ -50,8 +50,9 @@
 </div>
 
 <script>
-function togglePassword(fieldId, icon) {
+function togglePassword(fieldId, element) {
     let input = document.getElementById(fieldId);
+    let icon = element.querySelector('i');
 
     if (input.type === "password") {
         input.type = "text";
