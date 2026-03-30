@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('role');
             $table->text('address')->nullable();
             $table->string('password');
-            
+
             $table->timestamps();
         });
     }
