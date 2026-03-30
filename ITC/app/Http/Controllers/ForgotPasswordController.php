@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Register;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendOtpMail;
 use Carbon\Carbon;
 
 class ForgotPasswordController extends Controller
@@ -28,8 +30,11 @@ class ForgotPasswordController extends Controller
         $user->reset_expires_at = Carbon::now()->addMinutes(10);
         $user->save();
 
-        // TEMP: show code (instead of email)
-        return redirect('/reset-password')->with('success', 'Your reset code is: ' . $code);
+        // SEND EMAIL
+        Mail::to($user->email)->send(new SendOtpMail($code));
+
+       
+        return redirect('/reset-password')->with('success', 'OTP sent to your email');
     }
 
     // RESET PASSWORD
