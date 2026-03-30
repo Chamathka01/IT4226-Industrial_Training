@@ -31,9 +31,15 @@ Route::get('/users', function () {
 });
 
 Route::get('/logout', [LoginController::class, 'logout']);
-
+// forgot page
 Route::get('/forgot-password', function () {
     return view('forgot-password');
 });
-
+// send code
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendLink'])->name('password.send');
+// reset page
+Route::get('/reset-password', function () {
+    return view('reset-password');
+});
+// reset action
+Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.reset');
