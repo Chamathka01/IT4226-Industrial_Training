@@ -22,5 +22,8 @@
     </form>
 </div>
 
+@if(session('error'))
+    <div class="alert alert-danger">{{ session('error') }}</div>
+@endif
 </body>
 </html>
