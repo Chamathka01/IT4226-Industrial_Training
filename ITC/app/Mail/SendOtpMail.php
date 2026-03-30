@@ -13,13 +13,13 @@ use Illuminate\Queue\SerializesModels;
 class SendOtpMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public string $code; // OTP code accessible in the email view
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(string $code)
     {
-        //
+        $this->code = $code; // Pass the OTP when creating the Mailable
     }
 
     /**
@@ -28,7 +28,7 @@ class SendOtpMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Send Otp Mail',
+            subject: 'Password Reset Code', // Subject of the email
         );
     }
 
@@ -38,7 +38,7 @@ class SendOtpMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.otp', // Blade view for the OTP email
         );
     }
 
